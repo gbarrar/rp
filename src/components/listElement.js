@@ -5,13 +5,32 @@ import {
     Right,
     Text,
     Icon,
+    ActionSheet,
 } from "native-base";
 
-const ListElement = ({ item, onPress }) => {
+const ListElement = ({ item, onPress, config }) => {
+
+    const actionEvaluator = index => {
+        if (index === 0) {
+            onPress();
+        }
+    }
+
+    const actionPop = () => () => {
+        ActionSheet.show({
+            options: config.BUTTONS,
+            cancelButtonIndex: config.CANCEL_INDEX,
+            title: "Selecciona una opción",
+        },
+        buttonIndex => {
+            actionEvaluator(buttonIndex);
+        });
+    }
+
     const render = () => {
         return (
             <ListItem
-                onPress={onPress()}
+                onPress={actionPop()}
             >
                 <Left>
                     <Text>

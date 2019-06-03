@@ -2,10 +2,10 @@ import React, { memo } from "react";
 import { FlatList } from 'react-native';
 import ListElement from './listElement';
 
-const ActivityList = ({ data }) => {
+const ActivityList = ({ data, config }) => {
     const keyExtractor = (item) => `${item.id}`;
 
-    const onPress = () => () => {
+    const onPress = () => {
         console.log('ufale');
     }
 
@@ -13,11 +13,11 @@ const ActivityList = ({ data }) => {
         <ListElement
             onPress={onPress}
             item={item}
+            config={config}
         />
     );
 
     const render = () => {
-        console.log(data);
         return (
             <FlatList
                 data={data}

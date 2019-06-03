@@ -12,7 +12,7 @@ import {
 
 const uri = "https://facebook.github.io/react-native/docs/assets/favicon.png";
 
-const Points = () => {
+const CoupleInfo = () => {
     const render = () => {
         return (
             <Content padder>
@@ -42,4 +42,4 @@ const Points = () => {
     return render();
 }
 
-export default memo(Points);
+export default memo(CoupleInfo);
